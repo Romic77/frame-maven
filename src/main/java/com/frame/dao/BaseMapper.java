@@ -21,5 +21,7 @@ public interface BaseMapper<T, ID extends Serializable> {
 	int updateByPrimaryKeyWithBLOBs(T record);
 
 	int updateByPrimaryKey(T record);
+	
+	
 
 }

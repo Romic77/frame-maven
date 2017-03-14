@@ -22,7 +22,7 @@ public class UserController {
 	
 	 @RequestMapping("/showUser")  
      public String toIndex(int id,HttpServletRequest request,Model model){  
-        User user = this.userService.selectByPrimaryKey(new Long((long)id));
+        User user = this.userService.selectByPrimaryKey(new Long(id));
         model.addAttribute("user", user); 
         return "showUser";  
 	 }

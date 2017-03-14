@@ -190,7 +190,6 @@
 	  
 	    
 	    
-	    
 	    <!-- pagehelper插件分页 -->
         <dependency>
             <groupId>com.github.pagehelper</groupId>
@@ -218,6 +217,7 @@
   	 -->
   	 
   	<plugins>
+  		<!-- 生成entity,mapping,xml的mybatis插件 -->
   		<plugin>
 		    <groupId>org.mybatis.generator</groupId>
 		    <artifactId>mybatis-generator-maven-plugin</artifactId>
@@ -228,6 +228,42 @@
                 <!--允许覆盖生成的文件-->
                 <overwrite>true</overwrite>
 		    </configuration>
+		</plugin>
+				
+		<!-- 数据库版本管理工具Flyway https://flywaydb.org/getstarted/firststeps/maven -->		
+		<plugin>  
+		       <groupId>com.googlecode.flyway</groupId>  
+		       <artifactId>flyway-maven-plugin</artifactId>  
+		       <version>4.1.2</version>  
+		       <dependencies>  
+		              <dependency>  
+		                     <groupId>mysql</groupId>  
+		                     <artifactId>mysql-connector-java</artifactId>  
+		                     <version>5.1.30</version>  
+		              </dependency>  
+		       </dependencies>  
+		       <configuration>  
+		              <driver>${driver}</driver>  
+		              <url>${url}</url>  
+		              <user>${username}</user>  
+		              <password>${password}</password>  
+		   
+		              <!-- 设置接受flyway进行版本管理的数据库，多个数据库以逗号分隔 -->  
+		              <schemas>flywaydemo</schemas>  
+		              <!-- 设置存放flyway metadata数据的表名 -->  
+		              <table>schema_version</table>  
+		              <!-- 设置flyway扫描sql升级脚本、java升级脚本的目录路径或包路径 -->  
+		              <locations>  
+		                     <location>flyway/migrations</location>  
+		                     <location>com.kedacom.flywaydemo.migrations</location>  
+		              </locations>  
+		              <!-- 设置sql脚本文件的编码 -->  
+		              <encoding>UTF-8</encoding>  
+		              <!-- 设置执行migrate操作之前的validation行为 -->  
+		              <validationMode>ALL</validationMode>  
+		              <!-- 设置当validation失败时的系统行为 -->  
+		              <validationErrorMode>FAIL</validationErrorMode>  
+		       </configuration>  
 		</plugin>
   	</plugins>
     <finalName>frame-maven</finalName>
