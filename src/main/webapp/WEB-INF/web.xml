@@ -61,7 +61,17 @@
         <servlet-name>SpringMVC</servlet-name>  
         <!-- 此处可以可以配置成*.do，对应struts的后缀习惯 -->  
         <url-pattern>/</url-pattern>  
-    </servlet-mapping>  
+    </servlet-mapping>
+    
+    <error-page>
+		<error-code>404</error-code>
+		<location>/WEB-INF/jsp/common/404.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/WEB-INF/jsp/common/500.jsp</location>
+	</error-page>
+    
     <welcome-file-list>  
         <welcome-file>/index.jsp</welcome-file>  
     </welcome-file-list>  

@@ -2,6 +2,8 @@ Maven学习之路
 maven插件mybatis-generator生成代码配置
 https://my.oschina.net/u/1763011/blog/324106
 
+项目 右键--》run as --》 maven bulid --》弹出对话框 --》在goals中输入mybatis-generator:generate 或者 点击select --》选择你的mybatis插件 --》apply --》run
+
 redis下载
 https://github.com/MSOpenTech/redis/releases
 打开一个 cmd 窗口 使用cd命令切换目录到 C:\redis 运行 redis-server.exe redis.windows.conf 。
