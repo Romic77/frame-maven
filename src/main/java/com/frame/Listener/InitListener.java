@@ -1,33 +1,28 @@
 package com.frame.Listener;
 
-import javax.servlet.ServletContext;
-
-import org.springframework.context.ApplicationListener;
-import org.springframework.context.event.ContextRefreshedEvent;
-import org.springframework.stereotype.Component;
-import org.springframework.web.context.ServletContextAware;
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
 
 import com.frame.db.FlaywayDBUtil;
 
 /**
- * Listener - 初始化
  * 
- * @author rsico Team
- * @version 3.0
+ * @ClassName: InitListener
+ * @Description: Listener - 初始化
+ * @author: chenqi
+ * @date: 2017年3月16日 上午9:17:48
  */
-@Component("initListener")
-public class InitListener implements ServletContextAware, ApplicationListener<ContextRefreshedEvent> {
-	/** servletContext */
-	private ServletContext servletContext;
 
-	public void setServletContext(ServletContext servletContext) {
-		this.servletContext = servletContext;
+public class InitListener implements ServletContextListener{
+
+	@Override
+	public void contextDestroyed(ServletContextEvent arg0) {
+		System.exit(0);
 	}
 
-	public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
-		if (servletContext != null && contextRefreshedEvent.getApplicationContext().getParent() == null) {
-			FlaywayDBUtil.migration();
-		}
+	@Override
+	public void contextInitialized(ServletContextEvent arg0) {
+		FlaywayDBUtil.migration();
 	}
 
 }

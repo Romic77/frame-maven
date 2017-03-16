@@ -1,6 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@include file="common/taglib.jsp"%>    
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@include file="/WEB-INF/jsp/common/taglibs.jsp"%>    
 <!DOCTYPE html>
 <html>
 
@@ -40,12 +39,12 @@
 
             <form class="m-t" role="form" action="index.html">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="用户名" required="">
+                    <input type="text" id="username" class="form-control" placeholder="用户名" required="required">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" placeholder="密码" required="">
+                    <input type="password" id="password" class="form-control" placeholder="密码" required="required">
                 </div>
-                <button type="submit" class="btn btn-primary block full-width m-b">登 录</button>
+                <button type="button" onclick="login()" class="btn btn-primary block full-width m-b">登 录</button>
 
 
                 <p class="text-muted text-center"> <a href="login.html#"><small>忘记密码了？</small></a> | <a href="register.html">注册一个新账号</a>
@@ -56,6 +55,7 @@
     </div>
     <script src="${ctx}/js/jquery.min.js?v=2.1.4"></script>
     <script src="${ctx}/js/bootstrap.min.js?v=3.3.5"></script>
+    <script src="${ctx}/resources/js/login.js"></script>
     <script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
 </body>
 

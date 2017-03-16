@@ -12,31 +12,31 @@ public class BaseServiceImpl<T, ID extends Serializable> implements BaseService<
 		this.baseMapper = baseMapper;
 	}
 	@Override
-	public int deleteByPrimaryKey(ID id) {
+	public int deleteByPrimaryKey(ID id) throws Exception{
 		return baseMapper.deleteByPrimaryKey(id);
 	}
 	@Override
-	public int insertSelective(T record) {
+	public int insertSelective(T record) throws Exception{
 		return baseMapper.insertSelective(record);
 	}
 	@Override
-	public T selectByPrimaryKey(ID id) {
+	public T selectByPrimaryKey(ID id) throws Exception{
 		return baseMapper.selectByPrimaryKey(id);
 	}
 	@Override
-	public int updateByPrimaryKeySelective(T record) {
+	public int updateByPrimaryKeySelective(T record) throws Exception{
 		return baseMapper.updateByPrimaryKey(record);
 	}
 	@Override
-	public int updateByPrimaryKeyWithBLOBs(T record) {
+	public int updateByPrimaryKeyWithBLOBs(T record) throws Exception{
 		return baseMapper.updateByPrimaryKeyWithBLOBs(record);
 	}
 	@Override
-	public int updateByPrimaryKey(T record) {
+	public int updateByPrimaryKey(T record) throws Exception{
 		return baseMapper.updateByPrimaryKey(record);
 	}
 	@Override
-	public int insert(T record) {
+	public int insert(T record) throws Exception{
 		return baseMapper.insert(record);
 	}
 }
