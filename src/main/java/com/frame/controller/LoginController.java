@@ -15,9 +15,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.alibaba.fastjson.JSONObject;
 import com.frame.entity.Admin;
 import com.frame.exception.TipRuntimeException;
+import com.frame.exception.VP;
 import com.frame.service.AdminService;
 import com.frame.utils.MD5Utils;
 
@@ -31,9 +34,9 @@ private static final Logger logger = LoggerFactory.getLogger(LoginController.cla
 	private AdminService adminService;
 	
 	@RequestMapping(value = "/toLogin", method = RequestMethod.GET)  
-    public String toLogin(HttpServletRequest request,Model model){  
-       
-       return "login";  
+    public ModelAndView toLogin(HttpServletRequest request,Model model){  
+		ModelAndView mv =new ModelAndView("login");
+        return mv;  
 	}
 	
 	/**
@@ -48,17 +51,27 @@ private static final Logger logger = LoggerFactory.getLogger(LoginController.cla
 	 */
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	@ResponseBody
-    public String login(String username,String password,HttpServletRequest request,Model model,HttpSession session) throws Exception{
+    public JSONObject login(String username,String password,HttpServletRequest request,Model model,HttpSession session) throws Exception{
 		Map<String,Object> param=new HashMap<String,Object>();
 		password=MD5Utils.getMD5Str(password).toUpperCase();
 		param.put("username", username);
 		param.put("password", password);
 	    Admin admin=adminService.login(param);
 	    if(admin==null){
-		    throw new TipRuntimeException("账号或密码不正确");
+		    throw new TipRuntimeException(VP.ERROR_LOGIN_ACC_PWD);
 	    }
 	    session.setAttribute("admin", admin);
-        return "index";  
+	    JSONObject json=new JSONObject();
+	    json.put("status", 1);
+        return json;  
 	}
+	
+	
+	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	public ModelAndView index(HttpServletRequest request,Model model,HttpSession session) throws Exception{
+		ModelAndView mv =new ModelAndView("index");
+        return mv;  
+	}
+	
 	 
 }

@@ -16,9 +16,10 @@
     <link rel="shortcut icon" href="favicon.ico">
     <link href="${ctx}/css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
     <link href="${ctx}/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
-
     <link href="${ctx}/css/animate.min.css" rel="stylesheet">
     <link href="${ctx}/css/style.min.css?v=4.0.0" rel="stylesheet">
+    <!-- Sweet Alert -->
+    <link href="${ctx}/css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
     <base target="_blank">
     <!--[if lt IE 8]>
     <meta http-equiv="refresh" content="0;ie.html" />
@@ -55,6 +56,7 @@
     </div>
     <script src="${ctx}/js/jquery.min.js?v=2.1.4"></script>
     <script src="${ctx}/js/bootstrap.min.js?v=3.3.5"></script>
+    <script src="${ctx}/js/plugins/sweetalert/sweetalert.min.js"></script>
     <script src="${ctx}/resources/js/login.js"></script>
     <script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
 </body>

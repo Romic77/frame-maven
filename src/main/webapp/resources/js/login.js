@@ -6,7 +6,10 @@ function login() {
 		username : username,
 		password : password
 	}, function(result) {
-		alert(result);
-			//document.location.href = JsUtils.getRootPath()+"/admin/adminIndex.do";
+		if(result.status==0){
+			swal("错误提示", result.msg, "error");
+		}else{
+			document.location.href = JsUtils.getRootPath()+"/login/index.do"
+		}
 	});
 }

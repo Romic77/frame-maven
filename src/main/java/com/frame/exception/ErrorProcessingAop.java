@@ -49,12 +49,15 @@ public class ErrorProcessingAop {
         return obj;
     }
 
-    private String commentError(VP vp, String message) {
+    private JSONObject commentError(VP vp, String message) {
         JSONObject json = new JSONObject();
         if (vp == null)
             json.put("error",message);
         else
-        	json.put("error",vp);
-        return json.toString();
+        	json.put("code",vp.getCode());
+        	json.put("msg",vp.getMessage());
+        	json.put("pattern",vp.getPattern());
+        	json.put("status", vp.getStatus());
+        return json;
     }
 }
