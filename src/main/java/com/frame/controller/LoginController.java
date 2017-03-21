@@ -66,7 +66,6 @@ private static final Logger logger = LoggerFactory.getLogger(LoginController.cla
         return json;  
 	}
 	
-	
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public ModelAndView index(HttpServletRequest request,Model model,HttpSession session) throws Exception{
 		ModelAndView mv =new ModelAndView("index");

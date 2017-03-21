@@ -4,7 +4,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;  
   
 import org.springframework.web.servlet.HandlerInterceptor;  
-import org.springframework.web.servlet.ModelAndView;  
+import org.springframework.web.servlet.ModelAndView;
+
+import com.frame.entity.Admin;  
 /** 
  * 登录认证的拦截器 
  */  
@@ -39,9 +41,9 @@ public class LoginInterceptor implements HandlerInterceptor{
         }  
         //获取Session  
         HttpSession session = request.getSession();  
-        String username = (String)session.getAttribute("username");  
+        Admin admin = (Admin)session.getAttribute("admin");  
           
-        if(username != null){  
+        if(admin != null){  
             return true;  
         }  
         //不符合条件的，跳转到登录界面  

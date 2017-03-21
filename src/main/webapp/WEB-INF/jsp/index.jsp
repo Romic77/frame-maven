@@ -18,7 +18,7 @@
     <meta http-equiv="refresh" content="0;ie.html" />
     <![endif]-->
 
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="shortcut icon" href="${ctx}/img/favicon.ico">
     <link href="${ctx}/css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
     <link href="${ctx}/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
     <link href="${ctx}/css/animate.min.css" rel="stylesheet">
@@ -35,7 +35,7 @@
                 <ul class="nav" id="side-menu">
                     <li class="nav-header">
                         <div class="dropdown profile-element">
-                            <span><img alt="image" class="img-circle" src="img/profile_small.jpg" /></span>
+                            <span><img alt="image" class="img-circle" src="${ctx}/img/profile_small.jpg" /></span>
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="clear">
                                <span class="block m-t-xs"><strong class="font-bold">Beaut-zihan</strong></span>
@@ -67,19 +67,19 @@
                         </a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a class="J_menuItem" href="index_v1.html" data-index="0">主页示例一</a>
+                                <a class="J_menuItem" href="${ctx}/index/index_v1.do" data-index="0">主页示例一</a>
                             </li>
                             <li>
-                                <a class="J_menuItem" href="index_v2.html">主页示例二</a>
+                                <a class="J_menuItem" href="${ctx}/index/index_v2.do">主页示例二</a>
                             </li>
                             <li>
-                                <a class="J_menuItem" href="index_v3.html">主页示例三</a>
+                                <a class="J_menuItem" href="${ctx}/index/index_v3.do">主页示例三</a>
                             </li>
                             <li>
-                                <a class="J_menuItem" href="index_v4.html">主页示例四</a>
+                                <a class="J_menuItem" href="${ctx}/index/index_v4.do">主页示例四</a>
                             </li>
                             <li>
-                                <a href="index_v5.html" target="_blank">主页示例五</a>
+                                <a href="${ctx}/index/index_v5.do" target="_blank">主页示例五</a>
                             </li>
                         </ul>
 
@@ -398,7 +398,7 @@
                                 <li class="m-t-xs">
                                     <div class="dropdown-messages-box">
                                         <a href="profile.html" class="pull-left">
-                                            <img alt="image" class="img-circle" src="img/a7.jpg">
+                                            <img alt="image" class="img-circle" src="${ctx}/img/a7.jpg">
                                         </a>
                                         <div class="media-body">
                                             <small class="pull-right">46小时前</small>
@@ -412,7 +412,7 @@
                                 <li>
                                     <div class="dropdown-messages-box">
                                         <a href="profile.html" class="pull-left">
-                                            <img alt="image" class="img-circle" src="img/a4.jpg">
+                                            <img alt="image" class="img-circle" src="${ctx}/img/a4.jpg">
                                         </a>
                                         <div class="media-body ">
                                             <small class="pull-right text-navy">25小时前</small>
@@ -481,7 +481,7 @@
                 </button>
                 <nav class="page-tabs J_menuTabs">
                     <div class="page-tabs-content">
-                        <a href="javascript:;" class="active J_menuTab" data-id="index_v1.html">首页</a>
+                        <a href="javascript:;" class="active J_menuTab" data-id="${ctx}/index/index_v1.do">首页</a>
                     </div>
                 </nav>
                 <button class="roll-nav roll-right J_tabRight"><i class="fa fa-forward"></i>
@@ -503,7 +503,7 @@
                 <a href="login.html" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
             </div>
             <div class="row J_mainContent" id="content-main">
-                <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="index_v1.html?v=4.0" frameborder="0" data-id="index_v1.html" seamless></iframe>
+                <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="${ctx}/index/index_v1.do" frameborder="0" data-id="index_v1.html" seamless></iframe>
             </div>
             <div class="footer">
                 <div class="pull-right">&copy; 2014-2015 <a href="http://www.zi-han.net/" target="_blank">zihan's blog</a>
@@ -616,7 +616,7 @@
                             <div class="sidebar-message">
                                 <a href="#">
                                     <div class="pull-left text-center">
-                                        <img alt="image" class="img-circle message-avatar" src="img/a1.jpg">
+                                        <img alt="image" class="img-circle message-avatar" src="${ctx}/img/a1.jpg">
 
                                         <div class="m-t-xs">
                                             <i class="fa fa-star text-warning"></i>
@@ -634,7 +634,7 @@
                             <div class="sidebar-message">
                                 <a href="#">
                                     <div class="pull-left text-center">
-                                        <img alt="image" class="img-circle message-avatar" src="img/a2.jpg">
+                                        <img alt="image" class="img-circle message-avatar" src="${ctx}/img/a2.jpg">
                                     </div>
                                     <div class="media-body">
                                         HCY48之音乐大魔王会员专属皮肤已上线，快来一键换装拥有他，宣告你对华晨宇的爱吧！
@@ -646,7 +646,7 @@
                             <div class="sidebar-message">
                                 <a href="#">
                                     <div class="pull-left text-center">
-                                        <img alt="image" class="img-circle message-avatar" src="img/a3.jpg">
+                                        <img alt="image" class="img-circle message-avatar" src="${ctx}/img/a3.jpg">
 
                                         <div class="m-t-xs">
                                             <i class="fa fa-star text-warning"></i>
@@ -664,7 +664,7 @@
                             <div class="sidebar-message">
                                 <a href="#">
                                     <div class="pull-left text-center">
-                                        <img alt="image" class="img-circle message-avatar" src="img/a4.jpg">
+                                        <img alt="image" class="img-circle message-avatar" src="${ctx}/img/a4.jpg">
                                     </div>
 
                                     <div class="media-body">
@@ -677,7 +677,7 @@
                             <div class="sidebar-message">
                                 <a href="#">
                                     <div class="pull-left text-center">
-                                        <img alt="image" class="img-circle message-avatar" src="img/a8.jpg">
+                                        <img alt="image" class="img-circle message-avatar" src="${ctx}/img/a8.jpg">
                                     </div>
                                     <div class="media-body">
 
@@ -690,7 +690,7 @@
                             <div class="sidebar-message">
                                 <a href="#">
                                     <div class="pull-left text-center">
-                                        <img alt="image" class="img-circle message-avatar" src="img/a7.jpg">
+                                        <img alt="image" class="img-circle message-avatar" src="${ctx}/img/a7.jpg">
                                     </div>
                                     <div class="media-body">
                                         这哥们的新视频又来了，创意杠杠滴，帅炸了！
@@ -702,7 +702,7 @@
                             <div class="sidebar-message">
                                 <a href="#">
                                     <div class="pull-left text-center">
-                                        <img alt="image" class="img-circle message-avatar" src="img/a3.jpg">
+                                        <img alt="image" class="img-circle message-avatar" src="${ctx}/img/a3.jpg">
 
                                         <div class="m-t-xs">
                                             <i class="fa fa-star text-warning"></i>
@@ -720,7 +720,7 @@
                             <div class="sidebar-message">
                                 <a href="#">
                                     <div class="pull-left text-center">
-                                        <img alt="image" class="img-circle message-avatar" src="img/a4.jpg">
+                                        <img alt="image" class="img-circle message-avatar" src="${ctx}/img/a4.jpg">
                                     </div>
                                     <div class="media-body">
                                         我发起了一个投票 【你认为下午大盘会翻红吗？】
