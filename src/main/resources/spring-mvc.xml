@@ -23,7 +23,6 @@
     </mvc:message-converters>  
   </mvc:annotation-driven> 
 	
-	<aop:aspectj-autoproxy/>
 	
 	<!-- 放过静态资源 -->
 	<mvc:default-servlet-handler/>
