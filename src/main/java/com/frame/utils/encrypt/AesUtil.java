@@ -1,4 +1,4 @@
-package com.frame.utils;
+package com.frame.utils.encrypt;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -14,7 +14,7 @@ import sun.misc.BASE64Encoder;
 /**
  * 功能描述 加密常用类
  */
-public class EncryptUtil {
+public class AesUtil {
 	// 密钥是16位长度的byte[]进行Base64转换后得到的字符串
 	public static String key = "Y2hlbnFpNzc1ODI1OEFYUw==";
 
@@ -58,24 +58,24 @@ public class EncryptUtil {
 		// 取MD5Hash码，并组合加密数组
 		byte[] md5Hasn = null;
 		try {
-			md5Hasn = EncryptUtil.MD5Hash(encrypt, 0, encrypt.length);
+			md5Hasn = AesUtil.MD5Hash(encrypt, 0, encrypt.length);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		// 组合消息体
-		byte[] totalByte = EncryptUtil.addMD5(md5Hasn, encrypt);
+		byte[] totalByte = AesUtil.addMD5(md5Hasn, encrypt);
 
 		// 取密钥和偏转向量
 		byte[] key = new byte[8];
 		byte[] iv = new byte[8];
-		getKeyIV(EncryptUtil.key, key, iv);
+		getKeyIV(AesUtil.key, key, iv);
 		SecretKeySpec deskey = new SecretKeySpec(key, "DES");
 		IvParameterSpec ivParam = new IvParameterSpec(iv);
 
 		// 使用DES算法使用加密消息体
 		byte[] temp = null;
 		try {
-			temp = EncryptUtil.DES_CBC_Encrypt(totalByte, deskey, ivParam);
+			temp = AesUtil.DES_CBC_Encrypt(totalByte, deskey, ivParam);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -113,7 +113,7 @@ public class EncryptUtil {
 		// 取密钥和偏转向量
 		byte[] key = new byte[8];
 		byte[] iv = new byte[8];
-		getKeyIV(EncryptUtil.key, key, iv);
+		getKeyIV(AesUtil.key, key, iv);
 
 		SecretKeySpec deskey = new SecretKeySpec(key, "DES");
 		IvParameterSpec ivParam = new IvParameterSpec(iv);
@@ -121,7 +121,7 @@ public class EncryptUtil {
 		// 使用DES算法解密
 		byte[] temp = null;
 		try {
-			temp = EncryptUtil.DES_CBC_Decrypt(encBuf, deskey, ivParam);
+			temp = AesUtil.DES_CBC_Decrypt(encBuf, deskey, ivParam);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -129,7 +129,7 @@ public class EncryptUtil {
 		// 进行解密后的md5Hash校验
 		byte[] md5Hash = null;
 		try {
-			md5Hash = EncryptUtil.MD5Hash(temp, 16, temp.length - 16);
+			md5Hash = AesUtil.MD5Hash(temp, 16, temp.length - 16);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -22,7 +22,7 @@ import com.frame.entity.Admin;
 import com.frame.exception.TipRuntimeException;
 import com.frame.exception.VP;
 import com.frame.service.AdminService;
-import com.frame.utils.MD5Utils;
+import com.frame.utils.encrypt.MD5Utils;
 
 @RestController
 @RequestMapping("/login")

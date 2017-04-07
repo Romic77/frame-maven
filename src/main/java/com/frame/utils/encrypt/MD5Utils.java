@@ -1,4 +1,4 @@
-package com.frame.utils;
+package com.frame.utils.encrypt;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
@@ -20,7 +20,7 @@ import java.security.NoSuchAlgorithmException;
  * Company: www.inspur.com
  * </p>
  *
- * @author chenqifu
+ * @author chenqi
  * @version 1.0 @2013-7-31
  */
 public class MD5Utils {
