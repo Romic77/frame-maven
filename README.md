@@ -43,4 +43,5 @@ url=jdbc:mysql://192.168.1.143:3306/dubbo_dev?useUnicode=true&amp;characterEncod
 username=root
 password=root
 
-
+spring-rmi配置：
+http://note.youdao.com/noteshare?id=9fa23ebbb535471fc4239cab8a525f56&sub=09C0292DDE574FD299A22903FABAF368

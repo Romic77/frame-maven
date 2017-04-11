@@ -34,9 +34,9 @@ private static final Logger logger = LoggerFactory.getLogger(LoginController.cla
 	private AdminService adminService;
 	
 	@RequestMapping(value = "/toLogin", method = RequestMethod.GET)  
-    public ModelAndView toLogin(HttpServletRequest request,Model model){  
-		ModelAndView mv =new ModelAndView("login");
-        return mv;  
+    public String toLogin(HttpServletRequest request,Model model){  
+		
+        return "login";  
 	}
 	
 	/**
@@ -67,9 +67,9 @@ private static final Logger logger = LoggerFactory.getLogger(LoginController.cla
 	}
 	
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
-	public ModelAndView index(HttpServletRequest request,Model model,HttpSession session) throws Exception{
-		ModelAndView mv =new ModelAndView("index");
-        return mv;  
+	public String index(HttpServletRequest request,Model model,HttpSession session) throws Exception{
+		
+        return "index";  
 	}
 	
 	 

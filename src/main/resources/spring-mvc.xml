@@ -12,9 +12,10 @@
                         http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
                         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd 
                         ">  
-
+	
 	<!-- 在实际开发中通常都需配置 mvc:annotation-driven标签,这个标签是开启注解 -->  
 	<mvc:annotation-driven >  
+	
     <!-- 消息转换器 -->  
     <mvc:message-converters register-defaults="true">  
       <bean class="org.springframework.http.converter.StringHttpMessageConverter">  
@@ -22,7 +23,6 @@
       </bean>  
     </mvc:message-converters>  
   </mvc:annotation-driven> 
-	
 	
 	<!-- 放过静态资源 -->
 	<mvc:default-servlet-handler/>

@@ -23,8 +23,13 @@ public class ErrorProcessingAop {
 
     private static Logger log = LoggerFactory.getLogger(ErrorProcessingAop.class);
 
-    @Pointcut("within(@org.springframework.web.bind.annotation.RestController *)")
+    /*@Pointcut("within(@org.springframework.web.bind.annotation.RestController *)")
     public void pointcutAllController() {
+    }*/
+    
+    
+    @Pointcut("execution(* com.frame.controller.*.*(..))")  
+    private void pointcutAllController() {  
     }
 
     /**
