@@ -29,6 +29,8 @@ public class DownLoadPic {
 			
 			// 获取后缀为png和jpg的图片的元素集合
 			Elements pngs = doc.select(".post-content img[src~=(?i)\\.(png|jpe?g)]");
+			
+			pngs.remove(0);
 			// 遍历元素
 			for (Element e : pngs) {
 				String src = e.attr("src");// 获取img中的src路径
