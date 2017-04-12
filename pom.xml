@@ -51,13 +51,11 @@
             <artifactId>spring-tx</artifactId>  
             <version>${spring.version}</version>  
         </dependency>  
-  
         <dependency>  
             <groupId>org.springframework</groupId>  
             <artifactId>spring-jdbc</artifactId>  
             <version>${spring.version}</version>  
         </dependency>  
-  
         <dependency>  
             <groupId>org.springframework</groupId>  
             <artifactId>spring-webmvc</artifactId>  
@@ -83,12 +81,22 @@
             <artifactId>spring-context-support</artifactId>  
             <version>${spring.version}</version>  
         </dependency>  
-  
         <dependency>  
             <groupId>org.springframework</groupId>  
             <artifactId>spring-test</artifactId>  
             <version>${spring.version}</version>  
-        </dependency>  
+        </dependency>
+        <dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-jms</artifactId>
+		    <version>${spring.version}</version>
+		</dependency>
+        <dependency>
+		    <groupId>org.apache.activemq</groupId>
+		    <artifactId>activemq-core</artifactId>
+		    <version>5.7.0</version>
+		</dependency>
+          
         <!-- mybatis核心包 -->  
         <dependency>  
             <groupId>org.mybatis</groupId>  
@@ -171,6 +179,11 @@
             <artifactId>commons-codec</artifactId>  
             <version>1.9</version>  
         </dependency>
+        <dependency>
+		    <groupId>commons-lang</groupId>
+		    <artifactId>commons-lang</artifactId>
+		    <version>2.6</version>
+		</dependency>
         
         <!-- 缓存 -->  
 	    <dependency>  
@@ -242,7 +255,7 @@
 				<artifactId>standard</artifactId>
 				<version>1.1.2</version>
 			</dependency>
-  	</dependencies>
+  </dependencies>
   
   
   <build>

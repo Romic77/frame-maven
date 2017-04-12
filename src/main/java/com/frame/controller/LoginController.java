@@ -14,17 +14,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSONObject;
+import com.frame.activemq.MessageSender;
 import com.frame.entity.Admin;
 import com.frame.exception.TipRuntimeException;
 import com.frame.exception.VP;
 import com.frame.service.AdminService;
 import com.frame.utils.encrypt.MD5Utils;
 
-@RestController
+@Controller
 @RequestMapping("/login")
 public class LoginController extends BaseController{
 	
@@ -33,9 +32,11 @@ private static final Logger logger = LoggerFactory.getLogger(LoginController.cla
 	@Resource
 	private AdminService adminService;
 	
+	@Resource
+	private MessageSender messageSender;
+	
 	@RequestMapping(value = "/toLogin", method = RequestMethod.GET)  
     public String toLogin(HttpServletRequest request,Model model){  
-		
         return "login";  
 	}
 	
@@ -60,6 +61,7 @@ private static final Logger logger = LoggerFactory.getLogger(LoginController.cla
 	    if(admin==null){
 		    throw new TipRuntimeException(VP.ERROR_LOGIN_ACC_PWD);
 	    }
+	    messageSender.userLogin(admin.getAdminId(), admin.getAdminName());
 	    session.setAttribute("admin", admin);
 	    JSONObject json=new JSONObject();
 	    json.put("status", 1);

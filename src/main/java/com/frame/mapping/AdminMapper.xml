@@ -20,8 +20,8 @@
     <result column="LAST_UPDATE_TIME" property="lastUpdateTime" jdbcType="DATE" />
   </resultMap>
   <sql id="Base_Column_List" >
-    ADMIN_ID, ADMIN_NAME, SEX, EMAIL, PASSWORD, NICKNAME, STATUS, CREATE_BY, CREATE_BY_NAME, 
-    CREATE_TIME, LAST_UPDATE_BY, LAST_UPDATE_NAME, LAST_UPDATE_TIME
+    ADMIN_ID adminId, ADMIN_NAME adminName, SEX, EMAIL, PASSWORD, NICKNAME, STATUS, CREATE_BY createBy, CREATE_BY_NAME createByName, 
+    CREATE_TIME createTime, LAST_UPDATE_BY lastUpdateBy, LAST_UPDATE_NAME lastUpdateName, LAST_UPDATE_TIME lastUpdateTime 
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
@@ -190,6 +190,6 @@
   </update>
   
   <select id ="login" parameterType="hashmap"  resultType="com.frame.entity.Admin">
-		select * from t_admin where admin_name=#{username} and password=#{password} and status=1
+		select <include refid="Base_Column_List" /> from t_admin where admin_name=#{username} and password=#{password} and status=1
   </select>
 </mapper>
