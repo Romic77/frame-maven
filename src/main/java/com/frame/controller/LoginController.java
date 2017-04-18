@@ -27,7 +27,7 @@ import com.frame.utils.encrypt.MD5Utils;
 @RequestMapping("/login")
 public class LoginController extends BaseController{
 	
-private static final Logger logger = LoggerFactory.getLogger(LoginController.class);    
+	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 	
 	@Resource
 	private AdminService adminService;
