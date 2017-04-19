@@ -23,14 +23,10 @@ public class ErrorProcessingAop {
 
     private static Logger log = LoggerFactory.getLogger(ErrorProcessingAop.class);
 
-    /*@Pointcut("within(@org.springframework.web.bind.annotation.RestController *)")
+    @Pointcut("within(@org.springframework.web.bind.annotation.RestController *)")
     public void pointcutAllController() {
-    }*/
-    
-    
-    @Pointcut("execution(* com.frame.controller.*.*(..))")  
-    private void pointcutAllController() {  
     }
+
 
     /**
      * 异常统一处理
@@ -57,12 +53,12 @@ public class ErrorProcessingAop {
     private JSONObject commentError(VP vp, String message) {
         JSONObject json = new JSONObject();
         if (vp == null)
-            json.put("error",message);
+            json.put("error", message);
         else
-        	json.put("code",vp.getCode());
-        	json.put("msg",vp.getMessage());
-        	json.put("pattern",vp.getPattern());
-        	json.put("status", vp.getStatus());
+            json.put("code", vp.getCode());
+        json.put("msg", vp.getMessage());
+        json.put("pattern", vp.getPattern());
+        json.put("status", vp.getStatus());
         return json;
     }
 }

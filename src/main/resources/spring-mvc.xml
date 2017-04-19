@@ -14,8 +14,8 @@
                         ">  
 	
 	<!-- 在实际开发中通常都需配置 mvc:annotation-driven标签,这个标签是开启注解 -->  
-	<mvc:annotation-driven >  
-	
+	<mvc:annotation-driven >
+
     <!-- 消息转换器 -->  
     <mvc:message-converters register-defaults="true">  
       <bean class="org.springframework.http.converter.StringHttpMessageConverter">  
@@ -40,12 +40,14 @@
              <mvc:exclude-mapping path="/resources/**"/>
              <bean class="com.frame.interceptor.LoginInterceptor"></bean>  
          </mvc:interceptor>  
-     </mvc:interceptors> 
+     </mvc:interceptors>
 
-    
-    <!-- 自动扫描该包，使SpringMVC认为包下用了@controller注解的类是控制器 -->  
+
+    <!-- 自动扫描该包，使SpringMVC认为包下用了@controller注解的类是控制器 -->
     <context:component-scan base-package="com.frame.controller" />
-    
+    <!-- AOP异常统一处理 -->
+    <aop:aspectj-autoproxy/>
+
     <!-- 避免IE执行AJAX时，返回JSON出现下载文件 -->  
     <bean id="mappingJacksonHttpMessageConverter"  
         class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">  

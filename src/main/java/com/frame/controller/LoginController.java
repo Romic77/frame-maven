@@ -22,8 +22,10 @@ import com.frame.exception.TipRuntimeException;
 import com.frame.exception.VP;
 import com.frame.service.AdminService;
 import com.frame.utils.encrypt.MD5Utils;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
-@Controller
+@RestController
 @RequestMapping("/login")
 public class LoginController extends BaseController{
 	
@@ -36,8 +38,8 @@ public class LoginController extends BaseController{
 	private MessageSender messageSender;
 	
 	@RequestMapping(value = "/toLogin", method = RequestMethod.GET)  
-    public String toLogin(HttpServletRequest request,Model model){  
-        return "login";  
+    public ModelAndView toLogin(HttpServletRequest request,Model model){
+        return new ModelAndView("login");
 	}
 	
 	/**
@@ -69,9 +71,9 @@ public class LoginController extends BaseController{
 	}
 	
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
-	public String index(HttpServletRequest request,Model model,HttpSession session) throws Exception{
+	public ModelAndView index(HttpServletRequest request,Model model,HttpSession session) throws Exception{
 		
-        return "index";  
+        return new ModelAndView("index");
 	}
 	
 	 

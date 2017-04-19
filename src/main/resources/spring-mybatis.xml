@@ -19,7 +19,7 @@
                         
     <!-- 自动扫描 -->  
     <context:component-scan base-package="com.frame" />
-      
+
     <!-- 引入配置文件 -->  
     <bean id="propertyConfigurer"  
         class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">  
@@ -70,15 +70,9 @@
     </bean>  
   
   	<tx:annotation-driven transaction-manager="transactionManager" />
-  	
-  	<!-- AOP异常统一处理 -->
-  	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>  
-    <bean class="org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator" />  
-  
-    <bean id="aspectBean" class="com.frame.exception.ErrorProcessingAop" />
 
 	<import resource="classpath:spring-rmi.xml" />         
 	
 	<import resource="classpath:spring-jms.xml" />
-	
+
 </beans>  
