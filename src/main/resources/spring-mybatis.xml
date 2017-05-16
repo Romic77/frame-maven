@@ -71,6 +71,8 @@
   
   	<tx:annotation-driven transaction-manager="transactionManager" />
 
+    <import resource="classpath:spring-rmi.xml" />
+
 	<import resource="classpath:spring-jms.xml" />
 
 </beans>  
