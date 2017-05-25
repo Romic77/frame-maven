@@ -1,4 +1,4 @@
-package com.frame.test.img.heisiai;
+package com.frame.test.img.ru1mm8;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -9,10 +9,10 @@ import java.io.*;
 import java.net.URL;
 import java.net.URLConnection;
 
-public class HeisiaiPicDownload4 implements Runnable{
-	private String pathName = "F://imgs//heisiai";
+public class Ru1mmPicDownload1 implements Runnable{
+	private String pathName = "F://imgs//ru1mm";
 
-	private int page = 766;
+	private int page = 348;
 
 	public void getDoc(int startPage,int endPage) throws IOException {
 		for (int i = startPage; i > endPage; i--) {
@@ -21,7 +21,7 @@ public class HeisiaiPicDownload4 implements Runnable{
 				f.mkdirs();
 			}
 			// 以网易为例子
-			Document doc = Jsoup.connect("http://www.heisiai365.com/thread-" + i + ".htm").get();
+			Document doc = Jsoup.connect("http://www.ru1mm8.com/thread-" + i + ".htm").get();
 
 			// 获取后缀为png和jpg的图片的元素集合
 			Elements pngs = doc.select(".break-all img[src~=(?i)\\.(png|jpe?g)]");
@@ -57,7 +57,7 @@ public class HeisiaiPicDownload4 implements Runnable{
 	@Override
 	public void run() {
 		try {
-			getDoc(766,500);
+			getDoc(348,100);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

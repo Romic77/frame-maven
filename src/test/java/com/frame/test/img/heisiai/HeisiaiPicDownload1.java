@@ -9,10 +9,10 @@ import java.io.*;
 import java.net.URL;
 import java.net.URLConnection;
 
-public class HeisiaiPicDownload4 implements Runnable{
+public class HeisiaiPicDownload1 implements Runnable{
 	private String pathName = "F://imgs//heisiai";
 
-	private int page = 766;
+	private int page = 1972;
 
 	public void getDoc(int startPage,int endPage) throws IOException {
 		for (int i = startPage; i > endPage; i--) {
@@ -57,7 +57,7 @@ public class HeisiaiPicDownload4 implements Runnable{
 	@Override
 	public void run() {
 		try {
-			getDoc(766,500);
+			getDoc(100,1);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
