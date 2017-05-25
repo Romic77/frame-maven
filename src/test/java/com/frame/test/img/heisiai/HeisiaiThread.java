@@ -9,9 +9,9 @@ import com.frame.test.img.disi.DisiPicDownload3;
  */
 public class HeisiaiThread {
     public static void main(String[] args) {
-        new Thread(new HeisiaiPicDownload4()).start();
-        new Thread(new HeisiaiPicDownload3()).start();
-        new Thread(new HeisiaiPicDownload2()).start();
-        new Thread(new HeisiaiPicDownload1()).start();
+        //new Thread(new HeisiaiPicDownload4()).start();
+        //new Thread(new HeisiaiPicDownload3()).start();
+        //new Thread(new HeisiaiPicDownload2()).start();
+       new Thread(new HeisiaiPicDownload1()).start();
     }
 }

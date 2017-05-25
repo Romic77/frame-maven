@@ -12,7 +12,7 @@ import java.net.URLConnection;
 public class HeisiaiPicDownload3 implements Runnable{
 	private String pathName = "F://imgs//heisiai";
 
-	private int page = 1972;
+	private int page = 461;
 
 	public void getDoc(int startPage,int endPage) throws IOException {
 		for (int i = startPage; i > endPage; i--) {

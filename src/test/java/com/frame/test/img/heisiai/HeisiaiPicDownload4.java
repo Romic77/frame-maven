@@ -57,7 +57,7 @@ public class HeisiaiPicDownload4 implements Runnable{
 	@Override
 	public void run() {
 		try {
-			getDoc(766,500);
+			getDoc(751,500);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
