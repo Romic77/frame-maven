@@ -2,6 +2,7 @@ package com.frame.test;
 
 import javax.annotation.Resource;
 
+import com.frame.utils.encrypt.MD5Utils;
 import org.apache.log4j.Logger;
 import org.junit.runner.RunWith;
 import org.springframework.context.ApplicationContext;
@@ -32,5 +33,7 @@ public class TestMybatis{
         // logger.info("值："+user.getUserName());  
         logger.info(JSON.toJSONString(user));  
     }  */
-   
+    public static void main(String[] args) {
+        System.out.println(MD5Utils.getMD5Str("123456").toUpperCase());
+    }
 }  
