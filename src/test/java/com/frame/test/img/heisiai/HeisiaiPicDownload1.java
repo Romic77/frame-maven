@@ -15,7 +15,7 @@ public class HeisiaiPicDownload1 implements Runnable{
 	private int page = 1972;
 
 	public void getDoc(int startPage,int endPage) throws IOException {
-		for (int i = startPage; i > endPage; i--) {
+		for (int i = startPage; i >= endPage; i--) {
 			File f = new File(pathName + "/" + i);
 			if (!f.exists()) {
 				f.mkdirs();
@@ -57,7 +57,7 @@ public class HeisiaiPicDownload1 implements Runnable{
 	@Override
 	public void run() {
 		try {
-			getDoc(50,1);
+			getDoc(1,1);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

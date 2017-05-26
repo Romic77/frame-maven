@@ -12,15 +12,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MisituDownLoadPic {
-    private String pathName = "F://imgs//";
-
     private int page = 424;
 
-
     public void getDoc() throws IOException {
-
+        String pathName="";
+        int i=0;
         for (String href : getHrefs()) {
-            //String href = "https://www.queenshow.org/detailnew/358/57107.html";
+            /*if(i<29) {
+                i++;
+                continue;
+            }*/
+           // String href = "https://www.queenshow.org/detailnew/345/36463.html";
             Connection connect = HttpConnection.connect(href);
             connect.timeout(3000);
             connect.header("Accept-Encoding", "gzip,deflate,sdch");
@@ -29,7 +31,7 @@ public class MisituDownLoadPic {
             System.setProperty("jsse.enableSNIExtension", "false");
             connect.execute();
             Elements pathname = connect.get().select(".detailtitle");
-            pathName = pathName + pathname.text();
+            pathName = "F://imgs//" + pathname.text();
 
             File f = new File(pathName);
             if (!f.exists()) {
@@ -60,7 +62,7 @@ public class MisituDownLoadPic {
                     os.write(buf, 0, l);
                 }
 
-            }
+           }
         }
     }
 
@@ -70,7 +72,7 @@ public class MisituDownLoadPic {
 
     public List<String> getHrefs() throws IOException {
         List<String> hrefsList = new ArrayList<String>();
-        String href = "https://www.queenshow.org/catalog.php?cid=345";
+        String href = "https://www.queenshow.org/catalog.php?cid=345&page=2";
         Connection connect = HttpConnection.connect(href);
         connect.timeout(3000);
         connect.header("Accept-Encoding", "gzip,deflate,sdch");
@@ -81,8 +83,8 @@ public class MisituDownLoadPic {
         Elements hrefs = connect.get().select(".c2 a");
         for (Element e : hrefs) {
             hrefsList.add(e.attr("href").replace("./","https://www.queenshow.org/"));
-
         }
+
         return hrefsList;
     }
 
