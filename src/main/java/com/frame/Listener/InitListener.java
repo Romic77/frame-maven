@@ -22,7 +22,7 @@ public class InitListener implements ServletContextListener{
 
 	@Override
 	public void contextInitialized(ServletContextEvent arg0) {
-		FlaywayDBUtil.migration();
+
 	}
 
 }
