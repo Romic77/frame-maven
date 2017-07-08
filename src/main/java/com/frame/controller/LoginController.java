@@ -9,7 +9,6 @@ import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -63,11 +62,25 @@ public class LoginController extends BaseController{
 	    if(admin==null){
 		    throw new TipRuntimeException(VP.ERROR_LOGIN_ACC_PWD);
 	    }
-	    messageSender.userLogin(admin.getAdminId(), admin.getAdminName());
+	    //messageSender.userLogin(admin.getAdminId(), admin.getAdminName());
 	    session.setAttribute("admin", admin);
 	    JSONObject json=new JSONObject();
 	    json.put("status", 1);
         return json;  
+	}
+
+	/**
+	 *
+	 * @param request
+	 * @param model
+	 * @param session
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value = "/exit", method = RequestMethod.GET)
+	public ModelAndView exit(HttpServletRequest request, Model model, HttpSession session) throws Exception{
+		session.invalidate();
+		return new ModelAndView("index");
 	}
 	
 	@RequestMapping(value = "/index", method = RequestMethod.GET)

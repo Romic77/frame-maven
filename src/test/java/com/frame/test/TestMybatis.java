@@ -2,38 +2,38 @@ package com.frame.test;
 
 import javax.annotation.Resource;
 
+import com.alibaba.fastjson.JSON;
+import com.frame.entity.Admin;
 import com.frame.utils.encrypt.MD5Utils;
 import org.apache.log4j.Logger;
+import org.junit.Before;
+import org.junit.Ignore;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.frame.service.AdminService;  
+import com.frame.service.AdminService;
 
-@RunWith(SpringJUnit4ClassRunner.class)     //表示继承了SpringJUnit4ClassRunner类  
-@ContextConfiguration(locations = {"classpath:spring-mybatis.xml"})  
-public class TestMybatis{  
-    private static Logger logger = Logger.getLogger(TestMybatis.class);  
-    private ApplicationContext ac = null;  
-    
-    @Resource  
-    private AdminService adminService;  
-  
-  /*@Before  
-  public void before() {  
-      ac = new ClassPathXmlApplicationContext("applicationContext.xml");  
-      userService = (UserService) ac.getBean("userService");  
-  }  */
-  
-    /*@Test  
-    public void test1() {  
-        User user = userService.selectByPrimaryKey(1l);
-        // System.out.println(user.getUserName());  
-        // logger.info("值："+user.getUserName());  
-        logger.info(JSON.toJSONString(user));  
-    }  */
-    public static void main(String[] args) {
-        System.out.println(MD5Utils.getMD5Str("123456").toUpperCase());
+/**
+ *若写classpath*:spring-mvc.xml 和 classpath*:spring-mybatis.xml代表所有资源文件遍历，首先会查main资源，之后查找test资源
+ */
+@Ignore
+@RunWith(SpringJUnit4ClassRunner.class)     //表示继承了SpringJUnit4ClassRunner类
+@ContextConfiguration(locations = {"classpath*:spring-mvc.xml","classpath*:spring-mybatis.xml"})
+public class TestMybatis {
+    private static Logger logger = Logger.getLogger(TestMybatis.class);
+    private ApplicationContext ac = null;
+
+    @Resource
+    private AdminService adminService;
+
+   @Test
+    public void test1() throws Exception {
+      /* Admin admin = adminService.selectByPrimaryKey(10000l);
+       System.out.println(admin.getAdminId());*/
+
     }
 }  

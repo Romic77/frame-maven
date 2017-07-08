@@ -20,7 +20,7 @@
 	<!-- 真正可以产生Connection的ConnectionFactory，由ActiveMQ提供 http://localhost:8161/admin/xml/queues.jsp -->
 	<bean id="targetConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
 		<!--<property name="brokerURL" value="failover://tcp://localhost:61616"/> --><!-- failover://tcp://localhost:61616 会一直检测active是否已经连接,适合生产环境使用 -->
-		<property name="brokerURL" value="tcp://192.168.202.128:61616"/>
+		<property name="brokerURL" value="tcp://192.168.202.129:61616"/>
 		<!-- 消息传输监听器 处理网络及服务器异常-->
 		<property name="transportListener">
 			<bean class="com.frame.activemq.ActiveMQTransportListener" />

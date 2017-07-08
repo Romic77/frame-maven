@@ -3,8 +3,6 @@ package com.frame.Listener;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
-import com.frame.db.FlaywayDBUtil;
-
 /**
  * 
  * @ClassName: InitListener

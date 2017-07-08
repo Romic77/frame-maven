@@ -36,7 +36,18 @@
     <filter-mapping>  
         <filter-name>encodingFilter</filter-name>  
         <url-pattern>/*</url-pattern>  
-    </filter-mapping>  
+    </filter-mapping>
+
+    <filter>
+        <filter-name>springSessionRepositoryFilter</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>springSessionRepositoryFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+
     <!-- Spring监听器 -->  
     <listener>  
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>  
@@ -56,14 +67,9 @@
         </init-param>  
         <load-on-startup>1</load-on-startup>  
         <async-supported>true</async-supported>  
-    </servlet> 
-    
-    <!-- flyway listener -->
-    <listener>  
-        <listener-class>com.frame.Listener.InitListener</listener-class>  
-    </listener>  
-     
-    <servlet-mapping>  
+    </servlet>
+
+    <servlet-mapping>
         <servlet-name>SpringMVC</servlet-name>  
         <!-- 此处可以可以配置成*.do，对应struts的后缀习惯 -->  
         <url-pattern>/</url-pattern>  

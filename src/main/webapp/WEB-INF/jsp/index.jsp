@@ -52,7 +52,7 @@
                                 <li><a class="J_menuItem" href="mailbox.html">信箱</a>
                                 </li>
                                 <li class="divider"></li>
-                                <li><a href="login.html">安全退出</a>
+                                <li><a href="${ctx}/login/exit.do">安全退出</a>
                                 </li>
                             </ul>
                         </div>

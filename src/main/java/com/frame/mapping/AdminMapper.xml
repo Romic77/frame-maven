@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.frame.dao.AdminMapper" >
+<mapper namespace="com.frame.dao.AdminMapper">
 
-	<cache type="com.frame.cache.MybatisRedisCache" />  
+    <cache type="com.frame.cache.MybatisRedisCache"/>
 
-  <resultMap id="BaseResultMap" type="com.frame.entity.Admin" >
-    <id column="ADMIN_ID" property="adminId" jdbcType="BIGINT" />
-    <result column="ADMIN_NAME" property="adminName" jdbcType="VARCHAR" />
-    <result column="SEX" property="sex" jdbcType="INTEGER" />
-    <result column="EMAIL" property="email" jdbcType="VARCHAR" />
-    <result column="PASSWORD" property="password" jdbcType="VARCHAR" />
-    <result column="NICKNAME" property="nickname" jdbcType="VARCHAR" />
-    <result column="STATUS" property="status" jdbcType="INTEGER" />
-    <result column="CREATE_BY" property="createBy" jdbcType="VARCHAR" />
-    <result column="CREATE_BY_NAME" property="createByName" jdbcType="VARCHAR" />
-    <result column="CREATE_TIME" property="createTime" jdbcType="DATE" />
-    <result column="LAST_UPDATE_BY" property="lastUpdateBy" jdbcType="VARCHAR" />
-    <result column="LAST_UPDATE_NAME" property="lastUpdateName" jdbcType="VARCHAR" />
-    <result column="LAST_UPDATE_TIME" property="lastUpdateTime" jdbcType="DATE" />
-  </resultMap>
-  <sql id="Base_Column_List" >
+    <resultMap id="BaseResultMap" type="com.frame.entity.Admin">
+        <id column="ADMIN_ID" property="adminId" jdbcType="BIGINT"/>
+        <result column="ADMIN_NAME" property="adminName" jdbcType="VARCHAR"/>
+        <result column="SEX" property="sex" jdbcType="INTEGER"/>
+        <result column="EMAIL" property="email" jdbcType="VARCHAR"/>
+        <result column="PASSWORD" property="password" jdbcType="VARCHAR"/>
+        <result column="NICKNAME" property="nickname" jdbcType="VARCHAR"/>
+        <result column="STATUS" property="status" jdbcType="INTEGER"/>
+        <result column="CREATE_BY" property="createBy" jdbcType="VARCHAR"/>
+        <result column="CREATE_BY_NAME" property="createByName" jdbcType="VARCHAR"/>
+        <result column="CREATE_TIME" property="createTime" jdbcType="DATE"/>
+        <result column="LAST_UPDATE_BY" property="lastUpdateBy" jdbcType="VARCHAR"/>
+        <result column="LAST_UPDATE_NAME" property="lastUpdateName" jdbcType="VARCHAR"/>
+        <result column="LAST_UPDATE_TIME" property="lastUpdateTime" jdbcType="DATE"/>
+    </resultMap>
+    <sql id="Base_Column_List">
     ADMIN_ID adminId, ADMIN_NAME adminName, SEX, EMAIL, PASSWORD, NICKNAME, STATUS, CREATE_BY createBy, CREATE_BY_NAME createByName, 
     CREATE_TIME createTime, LAST_UPDATE_BY lastUpdateBy, LAST_UPDATE_NAME lastUpdateName, LAST_UPDATE_TIME lastUpdateTime 
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
-    select 
-    <include refid="Base_Column_List" />
-    from t_admin
-    where ADMIN_ID = #{adminId,jdbcType=BIGINT}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        select
+        <include refid="Base_Column_List"/>
+        from t_admin
+        where ADMIN_ID = #{adminId,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from t_admin
     where ADMIN_ID = #{adminId,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.frame.entity.Admin" >
+    <insert id="insert" parameterType="com.frame.entity.Admin">
     insert into t_admin (ADMIN_ID, ADMIN_NAME, SEX, 
       EMAIL, PASSWORD, NICKNAME, 
       STATUS, CREATE_BY, CREATE_BY_NAME, 
@@ -45,134 +45,134 @@
       #{createTime,jdbcType=DATE}, #{lastUpdateBy,jdbcType=VARCHAR}, #{lastUpdateName,jdbcType=VARCHAR}, 
       #{lastUpdateTime,jdbcType=DATE})
   </insert>
-  <insert id="insertSelective" parameterType="com.frame.entity.Admin" >
-    insert into t_admin
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="adminId != null" >
-        ADMIN_ID,
-      </if>
-      <if test="adminName != null" >
-        ADMIN_NAME,
-      </if>
-      <if test="sex != null" >
-        SEX,
-      </if>
-      <if test="email != null" >
-        EMAIL,
-      </if>
-      <if test="password != null" >
-        PASSWORD,
-      </if>
-      <if test="nickname != null" >
-        NICKNAME,
-      </if>
-      <if test="status != null" >
-        STATUS,
-      </if>
-      <if test="createBy != null" >
-        CREATE_BY,
-      </if>
-      <if test="createByName != null" >
-        CREATE_BY_NAME,
-      </if>
-      <if test="createTime != null" >
-        CREATE_TIME,
-      </if>
-      <if test="lastUpdateBy != null" >
-        LAST_UPDATE_BY,
-      </if>
-      <if test="lastUpdateName != null" >
-        LAST_UPDATE_NAME,
-      </if>
-      <if test="lastUpdateTime != null" >
-        LAST_UPDATE_TIME,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="adminId != null" >
-        #{adminId,jdbcType=BIGINT},
-      </if>
-      <if test="adminName != null" >
-        #{adminName,jdbcType=VARCHAR},
-      </if>
-      <if test="sex != null" >
-        #{sex,jdbcType=INTEGER},
-      </if>
-      <if test="email != null" >
-        #{email,jdbcType=VARCHAR},
-      </if>
-      <if test="password != null" >
-        #{password,jdbcType=VARCHAR},
-      </if>
-      <if test="nickname != null" >
-        #{nickname,jdbcType=VARCHAR},
-      </if>
-      <if test="status != null" >
-        #{status,jdbcType=INTEGER},
-      </if>
-      <if test="createBy != null" >
-        #{createBy,jdbcType=VARCHAR},
-      </if>
-      <if test="createByName != null" >
-        #{createByName,jdbcType=VARCHAR},
-      </if>
-      <if test="createTime != null" >
-        #{createTime,jdbcType=DATE},
-      </if>
-      <if test="lastUpdateBy != null" >
-        #{lastUpdateBy,jdbcType=VARCHAR},
-      </if>
-      <if test="lastUpdateName != null" >
-        #{lastUpdateName,jdbcType=VARCHAR},
-      </if>
-      <if test="lastUpdateTime != null" >
-        #{lastUpdateTime,jdbcType=DATE},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.frame.entity.Admin" >
-    update t_admin
-    <set >
-      <if test="adminName != null" >
-        ADMIN_NAME = #{adminName,jdbcType=VARCHAR},
-      </if>
-      <if test="sex != null" >
-        SEX = #{sex,jdbcType=INTEGER},
-      </if>
-      <if test="email != null" >
-        EMAIL = #{email,jdbcType=VARCHAR},
-      </if>
-      <if test="password != null" >
-        PASSWORD = #{password,jdbcType=VARCHAR},
-      </if>
-      <if test="nickname != null" >
-        NICKNAME = #{nickname,jdbcType=VARCHAR},
-      </if>
-      <if test="status != null" >
-        STATUS = #{status,jdbcType=INTEGER},
-      </if>
-      <if test="createBy != null" >
-        CREATE_BY = #{createBy,jdbcType=VARCHAR},
-      </if>
-      <if test="createByName != null" >
-        CREATE_BY_NAME = #{createByName,jdbcType=VARCHAR},
-      </if>
-      <if test="createTime != null" >
-        CREATE_TIME = #{createTime,jdbcType=DATE},
-      </if>
-      <if test="lastUpdateBy != null" >
-        LAST_UPDATE_BY = #{lastUpdateBy,jdbcType=VARCHAR},
-      </if>
-      <if test="lastUpdateName != null" >
-        LAST_UPDATE_NAME = #{lastUpdateName,jdbcType=VARCHAR},
-      </if>
-      <if test="lastUpdateTime != null" >
-        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=DATE},
-      </if>
-    </set>
-    where ADMIN_ID = #{adminId,jdbcType=BIGINT}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.frame.entity.Admin" >
+    <insert id="insertSelective" parameterType="com.frame.entity.Admin">
+        insert into t_admin
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="adminId != null">
+                ADMIN_ID,
+            </if>
+            <if test="adminName != null">
+                ADMIN_NAME,
+            </if>
+            <if test="sex != null">
+                SEX,
+            </if>
+            <if test="email != null">
+                EMAIL,
+            </if>
+            <if test="password != null">
+                PASSWORD,
+            </if>
+            <if test="nickname != null">
+                NICKNAME,
+            </if>
+            <if test="status != null">
+                STATUS,
+            </if>
+            <if test="createBy != null">
+                CREATE_BY,
+            </if>
+            <if test="createByName != null">
+                CREATE_BY_NAME,
+            </if>
+            <if test="createTime != null">
+                CREATE_TIME,
+            </if>
+            <if test="lastUpdateBy != null">
+                LAST_UPDATE_BY,
+            </if>
+            <if test="lastUpdateName != null">
+                LAST_UPDATE_NAME,
+            </if>
+            <if test="lastUpdateTime != null">
+                LAST_UPDATE_TIME,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="adminId != null">
+                #{adminId,jdbcType=BIGINT},
+            </if>
+            <if test="adminName != null">
+                #{adminName,jdbcType=VARCHAR},
+            </if>
+            <if test="sex != null">
+                #{sex,jdbcType=INTEGER},
+            </if>
+            <if test="email != null">
+                #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="nickname != null">
+                #{nickname,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=INTEGER},
+            </if>
+            <if test="createBy != null">
+                #{createBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createByName != null">
+                #{createByName,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=DATE},
+            </if>
+            <if test="lastUpdateBy != null">
+                #{lastUpdateBy,jdbcType=VARCHAR},
+            </if>
+            <if test="lastUpdateName != null">
+                #{lastUpdateName,jdbcType=VARCHAR},
+            </if>
+            <if test="lastUpdateTime != null">
+                #{lastUpdateTime,jdbcType=DATE},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.frame.entity.Admin">
+        update t_admin
+        <set>
+            <if test="adminName != null">
+                ADMIN_NAME = #{adminName,jdbcType=VARCHAR},
+            </if>
+            <if test="sex != null">
+                SEX = #{sex,jdbcType=INTEGER},
+            </if>
+            <if test="email != null">
+                EMAIL = #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                PASSWORD = #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="nickname != null">
+                NICKNAME = #{nickname,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                STATUS = #{status,jdbcType=INTEGER},
+            </if>
+            <if test="createBy != null">
+                CREATE_BY = #{createBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createByName != null">
+                CREATE_BY_NAME = #{createByName,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                CREATE_TIME = #{createTime,jdbcType=DATE},
+            </if>
+            <if test="lastUpdateBy != null">
+                LAST_UPDATE_BY = #{lastUpdateBy,jdbcType=VARCHAR},
+            </if>
+            <if test="lastUpdateName != null">
+                LAST_UPDATE_NAME = #{lastUpdateName,jdbcType=VARCHAR},
+            </if>
+            <if test="lastUpdateTime != null">
+                LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=DATE},
+            </if>
+        </set>
+        where ADMIN_ID = #{adminId,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.frame.entity.Admin">
     update t_admin
     set ADMIN_NAME = #{adminName,jdbcType=VARCHAR},
       SEX = #{sex,jdbcType=INTEGER},
@@ -188,8 +188,10 @@
       LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=DATE}
     where ADMIN_ID = #{adminId,jdbcType=BIGINT}
   </update>
-  
-  <select id ="login" parameterType="hashmap"  resultType="com.frame.entity.Admin">
-		select <include refid="Base_Column_List" /> from t_admin where admin_name=#{username} and password=#{password} and status=1
-  </select>
+
+    <select id="login" parameterType="hashmap" resultType="com.frame.entity.Admin">
+        select
+        <include refid="Base_Column_List"/>
+        from t_admin where admin_name=#{username} and password=#{password} and status=1
+    </select>
 </mapper>

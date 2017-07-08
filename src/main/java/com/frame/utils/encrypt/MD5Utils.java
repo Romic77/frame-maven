@@ -5,21 +5,6 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * <p>
- * Title:
- * </p>
- *
- * <p>
- * Description:
- * </p>
- * <p>
- * Copyright: www.inspur.com
- * </p>
- *
- * <p>
- * Company: www.inspur.com
- * </p>
- *
  * @author chenqi
  * @version 1.0 @2013-7-31
  */
