@@ -7,5 +7,5 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<settings>
 		<setting name="cacheEnabled" value="true" /> <!-- 开启缓存支持  -->
 	</settings>
-	
+
 </configuration>

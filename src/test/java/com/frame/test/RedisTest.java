@@ -9,7 +9,7 @@ import org.junit.Ignore;
 
 public class RedisTest {
     public static void main(String[] args) throws Exception {
-        JedisUtil.set("name","zhangsan");
-        System.out.println(JedisUtil.get("name"));
+        System.out.println(JedisUtil.getKeys("*session*"));
+        JedisUtil.clearAllOfProject();
     }
 }

@@ -4,7 +4,12 @@ import java.io.Serializable;
 
 import com.frame.dao.BaseMapper;
 import com.frame.service.BaseService;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+
+@Transactional
+@Service
 public class BaseServiceImpl<T, ID extends Serializable> implements BaseService<T, ID> {
 	private BaseMapper<T, ID> baseMapper;
 	
@@ -35,6 +40,7 @@ public class BaseServiceImpl<T, ID extends Serializable> implements BaseService<
 	public int updateByPrimaryKey(T record) throws Exception{
 		return baseMapper.updateByPrimaryKey(record);
 	}
+	@Transactional
 	@Override
 	public int insert(T record) throws Exception{
 		return baseMapper.insert(record);

@@ -38,7 +38,7 @@ public class LoginController extends BaseController{
 	
 	@RequestMapping(value = "/toLogin", method = RequestMethod.GET)  
     public ModelAndView toLogin(HttpServletRequest request,Model model){
-        return new ModelAndView("login");
+        return new ModelAndView("/WEB-INF/login.jsp");
 	}
 	
 	/**
@@ -80,7 +80,7 @@ public class LoginController extends BaseController{
 	@RequestMapping(value = "/exit", method = RequestMethod.GET)
 	public ModelAndView exit(HttpServletRequest request, Model model, HttpSession session) throws Exception{
 		session.invalidate();
-		return new ModelAndView("index");
+		return new ModelAndView("/login");
 	}
 	
 	@RequestMapping(value = "/index", method = RequestMethod.GET)

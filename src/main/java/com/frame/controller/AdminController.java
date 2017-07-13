@@ -2,6 +2,7 @@ package com.frame.controller;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.transaction.Transactional;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.slf4j.Logger;
@@ -16,7 +17,6 @@ import com.frame.service.AdminService;
 
 @Controller
 @RequestMapping("/admin")
-@Aspect
 public class AdminController {
 	private static final Logger logger = LoggerFactory.getLogger(AdminController.class);    
 	
@@ -30,12 +30,13 @@ public class AdminController {
         return "showUser";  
 	 }
 	 
-	 @RequestMapping("/insertUser")  
+	 @RequestMapping("/insertUser")
      public String save(HttpServletRequest request,Model model) throws Exception{
 		Admin admin=new Admin();
 		admin.setAdminName("张三");
 		admin.setPassword("123");
 		adminService.insert(admin);
-        return "showUser";  
+		int i = 4/0;
+        return "showUser";
 	 }
 }

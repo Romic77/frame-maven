@@ -15,12 +15,11 @@ public class InitListener implements ServletContextListener{
 
 	@Override
 	public void contextDestroyed(ServletContextEvent arg0) {
-		System.exit(0);
+
 	}
 
 	@Override
 	public void contextInitialized(ServletContextEvent arg0) {
-
 	}
 
 }

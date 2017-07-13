@@ -15,8 +15,10 @@
     http://www.springframework.org/schema/util/spring-util.xsd"
     >
                         
-    <!-- 自动扫描 -->  
-    <context:component-scan base-package="com.frame" />
+    <!-- 自动扫描 -->
+    <context:component-scan base-package="com.frame"/>
+
+
 
     <!-- 引入配置文件 -->  
     <bean id="propertyConfigurer"  
@@ -49,8 +51,8 @@
   
     <!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 -->  
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">  
-        <property name="dataSource" ref="dataSource" />  
-        <!-- 自动扫描mapping.xml文件 -->  
+        <property name="dataSource" ref="dataSource" />
+        <!-- 自动扫描mapping.xml文件 -->
         <property name="mapperLocations" value="classpath:com/frame/mapping/*.xml"></property>
         <property name="configLocation" value="classpath:mybatis-config.xml"></property>
     </bean>  
@@ -67,10 +69,9 @@
         <property name="dataSource" ref="dataSource" />  
     </bean>  
   
-  	<tx:annotation-driven transaction-manager="transactionManager" />
 
     <!-- spring session 管理 -->
-    <bean id="redisHttpSessionConfiguration"
+    <!--<bean id="redisHttpSessionConfiguration"
           class="org.springframework.session.data.redis.config.annotation.web.http.RedisHttpSessionConfiguration">
         <property name="maxInactiveIntervalInSeconds" value="600"/>
     </bean>
@@ -86,9 +87,9 @@
     <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
         <property name="maxTotal" value="100" />
         <property name="maxIdle" value="10" />
-    </bean>
+    </bean>-->
     <!-- 让Spring Session不再执行config命令 -->
-    <util:constant static-field="org.springframework.session.data.redis.config.ConfigureRedisAction.NO_OP"/>
+    <!--<util:constant static-field="org.springframework.session.data.redis.config.ConfigureRedisAction.NO_OP"/>-->
 
     <!--<import resource="classpath:spring-rmi.xml" />-->
 

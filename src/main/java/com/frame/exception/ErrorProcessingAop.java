@@ -16,9 +16,7 @@ import com.alibaba.fastjson.JSONObject;
  * 前后台使用,异常统一处理
  * author yefeng
  */
-@Aspect
-@Order(0)//值越小优先级越高,优先级最低即最后执行
-@Component
+
 public class ErrorProcessingAop {
 
     private static Logger log = LoggerFactory.getLogger(ErrorProcessingAop.class);

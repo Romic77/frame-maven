@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.dao.DataAccessException;
+import org.springframework.stereotype.Repository;
 
 @SuppressWarnings("rawtypes")
 public interface BaseMapper<T, ID extends Serializable> {
