@@ -83,9 +83,9 @@
 		<error-code>500</error-code>
 		<location>/WEB-INF/jsp/common/500.jsp</location>
 	</error-page>
-    
-    <welcome-file-list>  
-        <welcome-file>/login/login.jsp</welcome-file>  
-    </welcome-file-list>  
-  
+
+    <welcome-file-list>
+        <welcome-file>/WEB-INF/jsp/login.jsp</welcome-file>
+    </welcome-file-list>
+
 </web-app>  

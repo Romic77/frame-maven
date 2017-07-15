@@ -16,7 +16,9 @@ import org.springframework.stereotype.Service;
 import com.frame.dao.AdminMapper;
 import com.frame.entity.Admin;
 import com.frame.service.AdminService;
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional
 @Service
 public class AdminServiceImpl extends BaseServiceImpl<Admin, Long> implements AdminService{
 	@Resource  

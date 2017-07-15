@@ -4,7 +4,9 @@ import java.io.Serializable;
 
 import com.frame.dao.BaseMapper;
 import com.frame.service.BaseService;
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional
 public class BaseServiceImpl<T, ID extends Serializable> implements BaseService<T, ID> {
 	private BaseMapper<T, ID> baseMapper;
 	
