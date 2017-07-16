@@ -3,8 +3,8 @@ package com.frame.activemq;
 import java.io.IOException;
 
 import org.apache.activemq.transport.TransportListener;
-import org.apache.log4j.Logger;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 /**
  * 消息传输监听
  * @author Mafly
@@ -12,12 +12,12 @@ import org.apache.log4j.Logger;
  */
 public class ActiveMQTransportListener implements TransportListener {
 	
-	private Logger log = Logger.getLogger(ActiveMQTransportListener.class);
+	/** logger */
+	private static final Logger logger = LoggerFactory.getLogger(ActiveMQTransportListener.class);
 
 	/**     
 	 * 对消息传输命令进行监控     
-	 * @param command     
-	 */     
+	 */
 	@Override     
 	public void onCommand(Object o) {
 		
@@ -28,16 +28,16 @@ public class ActiveMQTransportListener implements TransportListener {
 	 * @param error     
 	 */     
 	@Override     
-	public void onException(IOException error) {		     
-		log.error("onException -> 消息服务器连接错误......", error);
+	public void onException(IOException error) {
+		logger.error("onException -> 消息服务器连接错误......", error);
 	}     
      
 	/**     
 	 * 当failover时触发     
 	 */     
 	@Override     
-	public void transportInterupted() {     
-		log.warn("transportInterupted -> 消息服务器连接发生中断...");     
+	public void transportInterupted() {
+		logger.warn("transportInterupted -> 消息服务器连接发生中断...");
 		//这里就可以状态进行标识了
 		
 	}     
@@ -46,8 +46,8 @@ public class ActiveMQTransportListener implements TransportListener {
 	 * 监控到failover恢复后进行触发     
 	 */     
 	@Override     
-	public void transportResumed() {     
-		log.info("transportResumed -> 消息服务器连接已恢复..."); 
+	public void transportResumed() {
+		logger.info("transportResumed -> 消息服务器连接已恢复...");
 		//这里就可以进行状态标识了
 	}
 }

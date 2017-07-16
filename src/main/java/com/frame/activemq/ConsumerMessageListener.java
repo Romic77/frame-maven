@@ -4,8 +4,8 @@ import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageListener;
 import javax.jms.TextMessage;
-
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 /**
@@ -15,8 +15,8 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class ConsumerMessageListener implements MessageListener {
-
-	private Logger log = Logger.getLogger(ConsumerMessageListener.class);
+	/** logger */
+	private static final Logger logger = LoggerFactory.getLogger(ConsumerMessageListener.class);
 
 	@Override
 	public void onMessage(Message arg0) {
@@ -28,7 +28,7 @@ public class ConsumerMessageListener implements MessageListener {
 			// TODO: 你喜欢的任何事情...
 
 		} catch (JMSException e) {
-			log.error("", e);
+			logger.error("", e);
 		}
 
 	}

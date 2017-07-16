@@ -3,10 +3,10 @@ package com.frame.cache;
 import java.util.Set;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.ibatis.cache.Cache;
-import org.apache.log4j.Logger;
 
 import com.frame.cache.redis.JedisUtil;
 
@@ -19,7 +19,8 @@ import com.frame.cache.redis.JedisUtil;
  */
 public class MybatisRedisCache implements Cache {
 
-	private static Logger logger = Logger.getLogger(MybatisRedisCache.class);
+	/** logger */
+	private static final Logger logger = LoggerFactory.getLogger(MybatisRedisCache.class);
 	/** The ReadWriteLock. */
 	private final ReadWriteLock readWriteLock = new ReentrantReadWriteLock();
 	/** ID （Mapper） */

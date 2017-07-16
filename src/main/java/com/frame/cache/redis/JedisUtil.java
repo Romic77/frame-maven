@@ -15,12 +15,11 @@ import java.util.regex.Pattern;
 
 import org.apache.commons.collections4.map.HashedMap;
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
-import org.apache.log4j.Logger;
-
 import com.frame.cache.redis.adapter.JedisAdapter;
 import com.frame.cache.redis.adapter.impl.JedisAdapterClusterImpl;
 import com.frame.cache.redis.adapter.impl.JedisAdapterImpl;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import redis.clients.jedis.HostAndPort;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisClusterConnectionHandler;
@@ -37,7 +36,8 @@ import redis.clients.jedis.exceptions.JedisConnectionException;
  */
 public class JedisUtil {
 
-    private static Logger logger = Logger.getLogger(JedisUtil.class);
+   /** logger */
+   private static final Logger logger = LoggerFactory.getLogger(JedisUtil.class);
 
     /**
      * redis普通连接

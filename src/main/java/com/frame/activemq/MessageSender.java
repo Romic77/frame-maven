@@ -4,13 +4,12 @@ import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.Session;
 import javax.jms.TextMessage;
-
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Component;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.alibaba.fastjson.JSONObject;
 
 /**
@@ -22,7 +21,8 @@ import com.alibaba.fastjson.JSONObject;
 @Component
 public class MessageSender {
 
-	private Logger log = Logger.getLogger(MessageSender.class);
+	/** logger */
+	private static final Logger logger = LoggerFactory.getLogger(MessageSender.class);
 
 	@Autowired
 	private JmsTemplate jmsTemplate;
@@ -40,7 +40,7 @@ public class MessageSender {
 		json.put("userid", id);
 		json.put("username", username);
 
-		log.info("发送了一条消息。");
+		logger.info("发送了一条消息。");
 		// 发送到金币队列
 		sendMessage(json.toJSONString(), 0);
 	}
@@ -66,7 +66,7 @@ public class MessageSender {
 				}
 			});
 		} catch (Exception e) {
-			log.error("", e);
+			logger.error("", e);
 		}
 	}
 }

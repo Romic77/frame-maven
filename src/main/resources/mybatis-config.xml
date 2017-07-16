@@ -4,8 +4,10 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
+
 	<settings>
 		<setting name="cacheEnabled" value="true" /> <!-- 开启缓存支持  -->
+		<setting name="logPrefix" value="dao."/>
 	</settings>
 	
 </configuration>

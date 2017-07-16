@@ -1,15 +1,14 @@
 package com.frame.cache.redis.adapter.impl;
 
-import java.io.UnsupportedEncodingException;
-import java.util.Set;
-
-import org.apache.log4j.Logger;
-
 import com.frame.cache.SerializeUtil;
 import com.frame.cache.redis.JedisUtil;
 import com.frame.cache.redis.adapter.JedisAdapter;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import redis.clients.jedis.Jedis;
+
+import java.io.UnsupportedEncodingException;
+import java.util.Set;
 
 
 
@@ -20,7 +19,8 @@ import redis.clients.jedis.Jedis;
  */
 public class JedisAdapterImpl implements JedisAdapter {
 	
-	private static Logger logger = Logger.getLogger(JedisAdapterImpl.class);
+	/** logger */
+	private static final Logger logger = LoggerFactory.getLogger(JedisAdapterImpl.class);
 
 	/**
 	 * 设置缓存

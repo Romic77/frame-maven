@@ -4,8 +4,10 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import org.apache.log4j.Logger;
+import java.util.Arrays;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 /**
  * 
  * @ClassName SerializeUtils
@@ -16,7 +18,8 @@ import org.apache.log4j.Logger;
  */
 public class SerializeUtil {
 
-	private static Logger logger = Logger.getLogger(SerializeUtil.class);
+	/** logger */
+	private static final Logger logger = LoggerFactory.getLogger(SerializeUtil.class);
 
 	/**
 	 * 
@@ -37,7 +40,7 @@ public class SerializeUtil {
 			byte[] bytes = baos.toByteArray();
 			return bytes;
 		} catch (Exception e) {
-			logger.error(e);
+			logger.error(String.valueOf(e));
 			throw e;
 		}
 	}
@@ -58,7 +61,7 @@ public class SerializeUtil {
 			ObjectInputStream ois = new ObjectInputStream(bais);
 			return ois.readObject();
 		} catch (Exception e) {
-			logger.error(e);
+			logger.error(String.valueOf(e));
 			throw e;
 		}
 	}

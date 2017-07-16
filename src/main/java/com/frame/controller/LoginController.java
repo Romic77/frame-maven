@@ -28,6 +28,7 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/login")
 public class LoginController extends BaseController{
 	
+	/** logger */
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 	
 	@Resource
@@ -54,6 +55,7 @@ public class LoginController extends BaseController{
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	@ResponseBody
     public JSONObject login(String username,String password,HttpServletRequest request,Model model,HttpSession session) throws Exception{
+		logger.info("start login");
 		Map<String,Object> param=new HashMap<String,Object>();
 		password=MD5Utils.getMD5Str(password).toUpperCase();
 		param.put("username", username);
@@ -66,6 +68,7 @@ public class LoginController extends BaseController{
 	    session.setAttribute("admin", admin);
 	    JSONObject json=new JSONObject();
 	    json.put("status", 1);
+		logger.info("end login");
         return json;  
 	}
 
