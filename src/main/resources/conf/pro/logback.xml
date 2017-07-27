@@ -8,7 +8,7 @@ debug：当此属性设置为true时，将打印出logback内部日志信息，�
     <!-- 上下文名称  -->
     <contextName>frame-maven</contextName>
     <!-- 定义日志的根目录 value可以配置为${CATALINA_HOME}-->
-    <substitutionProperty name="LOG_HOME" value="${CATALINA_HOME}/logs/frame-maven/" />
+    <substitutionProperty name="LOG_HOME" value="${log_path}/logs/frame-maven/" />
     <!-- 定义日志文件名称 -->
     <property name="appName" value="frame-maven"/>
     <!-- 日志文件大小,超过这个大小将被压缩 -->
@@ -29,11 +29,11 @@ debug：当此属性设置为true时，将打印出logback内部日志信息，�
     <!-- 滚动记录文件，先将日志记录到指定文件，当符合某个条件时，将日志记录到其他文件 -->
     <appender name="file.all" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <Encoding>UTF-8</Encoding>
-        <File>${LOG_HOME}/all/all.log</File>
+        <File>${LOG_HOME}/logs/system/system.log</File>
         <!-- 根据时间来制定滚动策略 -->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <FileNamePattern>
-                ${LOG_HOME}/all/all.%d{yyyy-MM-dd}.%i.log
+                ${LOG_HOME}/logs/system/system.%d{yyyy-MM-dd}.%i.log
             </FileNamePattern>
             <!-- 多久后自动清除旧的日志文件,单位:月 -->
             <MaxHistory>1</MaxHistory>
@@ -157,6 +157,9 @@ debug：当此属性设置为true时，将打印出logback内部日志信息，�
 
     <!-- Spring framework logger -->
     <logger name="org.springframework" level="error"/>
+
+    <!-- activemq logger -->
+    <logger name="org.apache.activemq" level="error"/>
 
     <!-- 不丢失日志.默认的,如果队列的80%已满,则会丢弃TRACT、DEBUG、INFO级别的日志 -->
     <!-- 更改默认的队列的深度,该值会影响性能.默认值为256 -->

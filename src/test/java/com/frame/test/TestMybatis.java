@@ -7,7 +7,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -31,18 +30,23 @@ public class TestMybatis {
         Admin admin=new Admin();
         admin.setAdminName("陈奇");
         admin.setPassword("1234");
-        adminService.insert(admin);
+        adminService.save(admin);
     }
 
-
+    @Ignore
     @Test
     public void logTest()throws Exception{
         logger.info("start");
         Admin admin=new Admin();
         admin.setAdminName("陈奇");
         admin.setPassword("1234");
-        adminService.insert(admin);
+        adminService.save(admin);
         logger.error("end");
+    }
 
+    @Test
+    public void selectTest(){
+        Admin admin=adminService.selectByKey(10001l);
+        System.out.println(admin.getAdminName());
     }
 }

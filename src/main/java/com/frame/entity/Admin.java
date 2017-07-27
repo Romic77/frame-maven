@@ -1,17 +1,20 @@
 package com.frame.entity;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Date;
 
+@Table(name = "t_admin")
 public class Admin implements Serializable{
-    /**
-	 * @fieldName: serialVersionUID
-	 * @fieldType: long
-	 * @Description: TODO
-	 */
-	private static final long serialVersionUID = 1904362351064276128L;
 
-	private Long adminId;
+    private static final long serialVersionUID = 1904362351064276128L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long adminId;
 
     private String adminName;
 

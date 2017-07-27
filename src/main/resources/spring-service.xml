@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+      http://www.springframework.org/schema/context
+      http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!--&lt;!&ndash; 引入jdbc配置文件 &ndash;&gt;
+	<context:property-placeholder location="classpath:cfg_${cfg.env}.properties" />
+	-->
+
+	<!-- <context:property-placeholder location="file:D:/project_config/cfg_test.properties" 
+		/> -->
+
+	<bean id="disconfMgrBean" class="com.baidu.disconf.client.DisconfMgrBean"
+		  destroy-method="destroy">
+		<property name="scanPackage" value="com.frame" />
+	</bean>
+	<bean id="disconfMgrBean2" class="com.baidu.disconf.client.DisconfMgrBeanSecond"
+		  init-method="init" destroy-method="destroy">
+	</bean>
+
+	<!-- 集成到disconf -->
+	<!-- 使用托管方式的disconf配置(无代码侵入, 配置更改不会自动reload) -->
+	<bean id="configproperties_no_reloadable_disconf"
+		  class="com.baidu.disconf.client.addons.properties.ReloadablePropertiesFactoryBean">
+		<property name="locations">
+			<list>
+				<!--<value>file:///opt/product/frame-maven/configuration/frame-maven/cfg.properties</value>-->
+				<value>cfg.properties</value>
+				<value>redis.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="propertyConfigurerForProject1"
+		  class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="ignoreResourceNotFound" value="true" />
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+		<property name="propertiesArray">
+			<list>
+				<ref bean="configproperties_no_reloadable_disconf" />
+			</list>
+		</property>
+	</bean>
+
+
+</beans>

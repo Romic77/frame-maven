@@ -1,12 +1,11 @@
 package com.frame.service;
 
-import java.util.Map;
-
-import javax.jms.Destination;
-
 import com.frame.entity.Admin;
 
-public interface AdminService extends BaseService<Admin, Long>{
+import javax.jms.Destination;
+import java.util.Map;
+
+public interface AdminService extends BaseService<Admin> {
 
 	Admin login(Map<String,Object> param)  throws Exception;
 

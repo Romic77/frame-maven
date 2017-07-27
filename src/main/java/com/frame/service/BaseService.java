@@ -1,21 +1,27 @@
 package com.frame.service;
 
-import java.io.Serializable;
+import org.springframework.stereotype.Service;
 
-public interface BaseService<T, ID extends Serializable> {
+import java.util.List;
 
-	int deleteByPrimaryKey(ID id) throws Exception;
+/**
+ * 通用接口
+ * @param <T>
+ */
+@Service
+public interface BaseService<T> {
 
-	int insertSelective(T record) throws Exception;
+    T selectByKey(Object key);
 
-	T selectByPrimaryKey(ID id) throws Exception;
+    int save(T entity);
 
-	int updateByPrimaryKeySelective(T record) throws Exception;
+    int delete(Object key);
 
-	int updateByPrimaryKeyWithBLOBs(T record) throws Exception;
+    int updateAll(T entity);
 
-	int updateByPrimaryKey(T record) throws Exception;
+    int updateNotNull(T entity);
 
-	int insert(T record) throws Exception;
+    List<T> selectByExample(Object example);
 
+    //TODO 其他...
 }
