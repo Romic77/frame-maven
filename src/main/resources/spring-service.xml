@@ -29,8 +29,8 @@
 		<property name="locations">
 			<list>
 				<!--<value>file:///opt/product/frame-maven/configuration/frame-maven/cfg.properties</value>-->
-				<value>cfg.properties</value>
-				<value>redis.properties</value>
+				<value>file:E:/idea_workspace/frame-maven/cfg.properties</value>
+				<value>file:E:/idea_workspace/frame-maven/redis.properties</value>
 			</list>
 		</property>
 	</bean>
