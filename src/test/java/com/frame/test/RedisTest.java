@@ -9,7 +9,12 @@ import org.junit.Ignore;
 
 public class RedisTest {
     public static void main(String[] args) throws Exception {
-        JedisUtil.set("name","zhangsan");
-        System.out.println(JedisUtil.get("name"));
+		do1();
     }
+
+    static void do1(){
+		System.out.println("sb");
+		do1();
+	}
+
 }

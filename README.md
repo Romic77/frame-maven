@@ -45,3 +45,41 @@ password=root
 
 spring-rmi配置：
 http://note.youdao.com/noteshare?id=9fa23ebbb535471fc4239cab8a525f56&sub=09C0292DDE574FD299A22903FABAF368
+
+logback.xml配置：
+http://note.youdao.com/noteshare?id=3e6911325662c9b33d2ea2aed2e61ee8&sub=8DA5A3D3838E4EB093292F0A142AC8C6
+
+GC日志打印：
+-verbose:gc
+-Xms60M
+-Xmx60M
+-Xmn30M
+-XX:SurvivorRatio=8
+-XX:+PrintGC
+-XX:+PrintGCDetails
+-XX:+PrintTenuringDistribution
+-XX:+PrintHeapAtGC
+-XX:+PrintGCTimeStamps
+-XX:+PrintGCDateStamps
+-XX:+HeapDumpOnOutOfMemoryError
+-Xloggc:G:/apache-tomcat-7.0.64/logs/frame-maven/gc/tomcat_gc.log
+
+
+
+三.公式:($TOMCAT_HOME/bin/catalina.sh)
+export JAVA_OPTS="-server -Xmx10240m -Xms10240m -Xmn3840m -XX:PermSize=256m
+-XX:MaxPermSize=256m -Denv=denalicnprod
+-XX:SurvivorRatio=8  -XX:PretenureSizeThreshold=1048576
+-XX:+DisableExplicitGC  
+-XX:+UseParNewGC  -XX:ParallelGCThreads=10
+-XX:+UseConcMarkSweepGC -XX:+CMSParallelRemarkEnabled
+-XX:+CMSScavengeBeforeRemark -XX:ParallelCMSThreads=10
+-XX:CMSInitiatingOccupancyFraction=70
+-XX:+UseCMSInitiatingOccupancyOnly
+-XX:+UseCMSCompactAtFullCollection -XX:CMSFullGCsBeforeCompaction=0
+-XX:+CMSPermGenSweepingEnabled -XX:+CMSClassUnloadingEnabled
+-XX:+UseFastAccessorMethods
+-XX:LargePageSizeInBytes=128M
+-XX:SoftRefLRUPolicyMSPerMB=0
+-XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintHeapAtGC
+-XX:+PrintGCApplicationStoppedTime -XX:+PrintGCDateStamps -Xloggc:gc.log -verbose:gc"
