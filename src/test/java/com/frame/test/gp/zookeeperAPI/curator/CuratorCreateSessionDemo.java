@@ -57,7 +57,7 @@ public class CuratorCreateSessionDemo {
 			public void processResult(CuratorFramework client, CuratorEvent event) throws Exception {
 				//创建节点是有线程池处理的，异步操作
 				System.out.println(Thread.currentThread().getName() + "->resultCode:" + event.getResultCode() + "->" + event.getType());
-				countDownLatch.countDown();
+				//countDownLatch.countDown();
 			}
 		}, executorService).forPath("/sync", "123".getBytes());
 		countDownLatch.await();

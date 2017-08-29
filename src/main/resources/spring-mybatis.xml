@@ -25,6 +25,7 @@
 		        <list>
 		            <value>classpath:jdbc.properties</value>
 		            <value>classpath:redis.properties</value>
+                    <value>classpath:activemq.properties</value>
 		        </list>
 		    </property>
     </bean>  

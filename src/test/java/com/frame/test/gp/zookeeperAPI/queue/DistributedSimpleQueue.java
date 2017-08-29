@@ -53,7 +53,8 @@ public class DistributedSimpleQueue<T> {
 			if (list.size() == 0) {
 				return null;
 			}
-			//将队列由小到大的顺序排序
+
+			//将队列安装由小到大的顺序排序
 			Collections.sort(list, new Comparator<String>() {
 				public int compare(String lhs, String rhs) {
 					return getNodeNumber(lhs, node_name).compareTo(getNodeNumber(rhs, node_name));

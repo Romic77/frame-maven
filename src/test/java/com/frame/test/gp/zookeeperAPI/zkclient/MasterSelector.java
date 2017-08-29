@@ -85,11 +85,11 @@ public class MasterSelector {
 
 			System.out.println(master.getMc_name() + "我现在已经是master,你们得听我的");
 
-			//定时器
+			/*//定时器
 			//master释放
 			scheduledExecutorService.schedule(() -> {
 				releaseMaster();
-			}, 5, TimeUnit.SECONDS);
+			}, 5, TimeUnit.SECONDS);*/
 		} catch (ZkNodeExistsException e) {
 			//master 已经存在
 			UserCenter userCenter = zkClient.readData(MASTER_PATH, true);

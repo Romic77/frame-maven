@@ -20,12 +20,19 @@
 	<!-- 真正可以产生Connection的ConnectionFactory，由ActiveMQ提供 http://localhost:8161/admin/xml/queues.jsp -->
 	<bean id="targetConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
 		<!--<property name="brokerURL" value="failover://tcp://localhost:61616"/> --><!-- failover://tcp://localhost:61616 会一直检测active是否已经连接,适合生产环境使用 -->
-		<property name="brokerURL" value="tcp://192.168.202.131:61616"/>
+		<property name="brokerURL" value="${activemq.brokerURL}"/>
+        <!--<property name="userName" value="${activemq.userName}"/>
+        <property name="password" value="${activemq.password}"/>-->
 		<!-- 消息传输监听器 处理网络及服务器异常-->
 		<property name="transportListener">
 			<bean class="com.frame.activemq.ActiveMQTransportListener" />
 		</property>
 	</bean>
+
+    <bean id="pooledConnectionFactory" class="org.apache.activemq.pool.PooledConnectionFactory">
+        <property name="connectionFactory" ref="targetConnectionFactory"></property>
+        <property name="maxConnections" value="${activemq.pool.maxConnection}"></property>
+    </bean>
 
 	<!-- Spring用于管理真正的ConnectionFactory的ConnectionFactory -->
 	<bean id="connectionFactory"
@@ -36,8 +43,8 @@
 	<!--这个是队列目的地 -->
 	<bean id="queueDestination" class="org.apache.activemq.command.ActiveMQQueue">
 		<constructor-arg>
-			<value>default_queue,gold_queue</value>
-		</constructor-arg>
+            <value>${activemq.queueName}</value>
+        </constructor-arg>
 	</bean>
 	
 	<!-- 消息监听器 -->
