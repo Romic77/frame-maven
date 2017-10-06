@@ -403,28 +403,6 @@
                 <artifactId>sonar-maven-plugin</artifactId>
                 <version>3.3.0.603</version>
             </plugin>
-
-            <!--<plugin>
-                <groupId>com.gupao</groupId>
-                <artifactId>gupao-maven-plugin</artifactId>
-                <version>1.0-SNAPSHOT</version>
-                <configuration>
-                    <message>This is a message</message>
-                    <options>
-                        <option>one</option>
-                        <option>two</option>
-                        <option>three</option>
-                    </options>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>gupaoedu</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>-->
         </plugins>
 
 
