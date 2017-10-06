@@ -19,7 +19,8 @@ public class ActiveMQTopicSubscriber {
 	/**
 	 * 默认就是tcp://localhost:61616
 	 */
-	public static final String BIND_URL = ActiveMQConnectionFactory.DEFAULT_BROKER_BIND_URL;
+	//public static final String BIND_URL = ActiveMQConnectionFactory.DEFAULT_BROKER_BIND_URL;
+	public static final String BIND_URL = "failover:(tcp://192.168.202.133:61616,tcp://192.168.202.134:61616,tcp://192.168.202.135:61616)?Randomize=false";
 
 	public static void main(String[] args) throws JMSException, InterruptedException, IOException {
 		ConnectionFactory connectionFactory = getConnectionFactory();
@@ -31,18 +32,10 @@ public class ActiveMQTopicSubscriber {
 		//所谓消息目标 就是发送和接收消息的地点，要么是queue,要么topic
 		Topic topic=session.createTopic("first-topic");
 		MessageConsumer messageConsumer=session.createConsumer(topic);
-		messageConsumer.setMessageListener(new MessageListener() {
-			public void onMessage(Message message) {
-				TextMessage tm = (TextMessage) message;
-				try {
-					System.out.println("Received message: " + tm.getText());
-				} catch (JMSException e) {
-					e.printStackTrace();
-				}
-			}
-		});
+		messageConsumer.setMessageListener(new Listener());
 
-		//if (connection != null) connection.close();
+		System.in.read();
+		if (connection != null) connection.close();
 	}
 
 	/**

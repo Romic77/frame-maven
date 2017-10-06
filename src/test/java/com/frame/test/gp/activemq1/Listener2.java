@@ -7,13 +7,13 @@ import javax.jms.*;
  * @CREATE 2017/8/15 17:22
  * 消息监听
  */
-public class Listener implements MessageListener {
+public class Listener2 implements MessageListener {
 	@Override
 	public void onMessage(Message message) {
 		if (message instanceof TextMessage) {
 			try {
 				TextMessage tm = (TextMessage) message;
-				System.out.println("reciver:"+tm.getText());
+				System.out.println("reciver2:"+tm.getText());
 				tm.acknowledge();
 			} catch (JMSException e) {
 				e.printStackTrace();

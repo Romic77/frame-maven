@@ -9,12 +9,7 @@ import org.junit.Ignore;
 
 public class RedisTest {
     public static void main(String[] args) throws Exception {
-		do1();
+		Singleton.getInstance();
     }
-
-    static void do1(){
-		System.out.println("sb");
-		do1();
-	}
 
 }

@@ -3,6 +3,7 @@ package com.frame.test.gp.activemq1;
 import org.apache.activemq.ActiveMQConnectionFactory;
 
 import javax.jms.*;
+import java.io.IOException;
 
 /**
  * @author Administrator
@@ -15,9 +16,10 @@ public class ActimeMQConsumer2 {
 	/**
 	 * 默认就是tcp://localhost:61616
 	 */
-	public static final String BIND_URL = ActiveMQConnectionFactory.DEFAULT_BROKER_BIND_URL;
+	//public static final String BIND_URL = ActiveMQConnectionFactory.DEFAULT_BROKER_BIND_URL;
+	public static final String BIND_URL = "failover:(tcp://192.168.202.133:61616,tcp://192.168.202.134:61616,tcp://192.168.202.135:61616)?Randomize=false";
 
-	public static void main(String[] args) throws JMSException {
+	public static void main(String[] args) throws JMSException, IOException {
 		ConnectionFactory connectionFactory = getConnectionFactory();
 		Connection connection = connectionFactory.createConnection();  //connection代表了应用程序和消费服务器之间的通信链路,获得连接工厂后，就可以创建connection
 		connection.start(); //2.创建连接的connection，注意连接默认是关闭的，因此需要start开启
@@ -39,7 +41,6 @@ public class ActimeMQConsumer2 {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 
 		if (connection != null) connection.close();
 
