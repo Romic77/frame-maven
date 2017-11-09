@@ -5,7 +5,7 @@
     <artifactId>frame-maven</artifactId>
     <packaging>war</packaging>
     <version>0.0.1-SNAPSHOT</version>
-    <name>frame-maven Maven Webapp</name>
+    <name>frame-maven</name>
     <url>http://maven.apache.org</url>
 
     <properties>
@@ -19,7 +19,6 @@
         <servlet-api.version>3.0.1</servlet-api.version>
         <jsp-api.version>2.1</jsp-api.version>
         <jstl.version>1.2</jstl.version>
-        <sonar.language>java</sonar.language>
     </properties>
 
     <dependencies>
@@ -369,6 +368,22 @@
         </profile>
     </profiles>
 
+
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>Codehaus repository</id>
+            <url>http://repository.codehaus.org/</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
     <build>
         <finalName>frame-maven</finalName>
 

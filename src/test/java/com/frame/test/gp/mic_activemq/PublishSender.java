@@ -1,5 +1,6 @@
 package com.frame.test.gp.mic_activemq;
 
+import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
 
 import javax.jms.*;
@@ -12,11 +13,11 @@ import java.io.IOException;
 public class PublishSender {
 	public static final String USER = ActiveMQConnectionFactory.DEFAULT_USER;
 	public static final String PASSWORD = ActiveMQConnectionFactory.DEFAULT_PASSWORD;
+	private static final String BROKEN_URL = ActiveMQConnection.DEFAULT_BROKER_URL;
 	/**
 	 * 默认就是tcp://localhost:61616
 	 */
-	//public static final String BIND_URL = ActiveMQConnectionFactory.DEFAULT_BROKER_BIND_URL;
-	public static final String BIND_URL = "failover:(tcp://192.168.202.133:61616,tcp://192.168.202.134:61616,tcp://192.168.202.135:61616)?Randomize=false";
+	//public static final String BROKEN_URL = "failover:(tcp://192.168.202.133:61616,tcp://192.168.202.134:61616,tcp://192.168.202.135:61616)?Randomize=false";
 
 	public static void main(String[] args) throws JMSException, IOException {
 		ConnectionFactory connectionFactory = getConnectionFactory();
@@ -41,12 +42,11 @@ public class PublishSender {
 	}
 
 	/**
-	 * @author: chenqi
 	 * @date: 2017-08-15 16:34:58
 	 * @description: 1.创建连接工厂connectionFactory, 需要username/password/url
 	 */
 	public static ConnectionFactory getConnectionFactory() {
-		return new ActiveMQConnectionFactory(USER, PASSWORD, BIND_URL);
+		return new ActiveMQConnectionFactory(USER, PASSWORD, BROKEN_URL);
 
 	}
 }
